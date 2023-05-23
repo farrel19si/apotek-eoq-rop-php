@@ -18,7 +18,7 @@ if (!isset($_SESSION["Login"])) {
     <meta name="author" content="">
 
     <link rel="icon" href="gambar/icon-nobg.png" />
-    <title>Beranda | Apotek Makmur</title>
+    <title>Tambah Barang | Apotek Makmur</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -123,7 +123,7 @@ if (!isset($_SESSION["Login"])) {
                     </button>
                     <!-- judul halaman -->
                     <div>
-                        <h1 class="h3 mb-0 text-gray-800">Data Barang</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah Barang</h1>
 
                     </div>
 
