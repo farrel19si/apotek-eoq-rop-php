@@ -43,11 +43,11 @@ if (!isset($_SESSION["Login"])) {
         }
 
         .alert {
-            color: red;
+            background-color: #de381f;
         }
 
-        td,
-        th {
+        table td,
+        table th {
             text-align: center;
         }
     </style>
@@ -75,11 +75,11 @@ if (!isset($_SESSION["Login"])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="beranda.php">
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="data_barang.php">
                     <span>Data Barang</span></a>
             </li>
@@ -179,18 +179,18 @@ if (!isset($_SESSION["Login"])) {
 
                                             <th>Nama Barang</th>
                                             <th>stok</th>
-                                            <th>Waktu Pengiriman</th>
-                                            <th>Rata-rata Permintaan/Hari</th>
+                                            <th>Waktu Pengiriman </th>
                                             <th>Safety Stock </th>
                                             <th>Status</th>
                                             <th width="10%">Aksi</th>
 
                                     </thead>
                                     <?php include "koneksi.php";
+
                                     $query = mysqli_query($koneksi, "SELECT * FROM barang ");
-                                    function hitungROP($rata_perhari, $lead_time, $safety_stock)
+                                    function hitungROP($penjualan_max, $lead_time, $safety_stock)
                                     {
-                                        $ROP = ($rata_perhari * $lead_time) + $safety_stock;
+                                        $ROP = ($penjualan_max / 7) * $lead_time + $safety_stock;
                                         return $ROP;
                                     }
                                     while ($data = mysqli_fetch_array($query)) {
@@ -198,20 +198,24 @@ if (!isset($_SESSION["Login"])) {
                                         <tbody>
                                             <tr>
                                                 <td><?= $data['nama_barang'] ?></td>
-                                                <td><?= $data['stok'] ?></td>
-                                                <td><?= $data['lead_time'] ?></td>
-                                                <td><?= $data['rata_perhari'] ?></td>
-                                                <td><?= $data['safety_stock'] ?></td>
+                                                <td><?= $data['stok'] ?> Buah</td>
+                                                <td><?= $data['lead_time'] ?> Hari</td>
+
+                                                <?php
+                                                $lead_time = $data['lead_time'];
+                                                $penjualan_max = $data['penjualan_max'];
+                                                $safety_stock = ($data['penjualan_max'] * 52) * $lead_time / 352;
+                                                $angka_bulat = round($safety_stock)
+                                                ?>
+                                                <td><?php echo $angka_bulat ?> Buah</td>
                                                 <?php
                                                 $rata_perhari = $data['rata_perhari'];
-                                                $lead_time = $data['lead_time'];
-                                                $safety_stock = $data['safety_stock'];
 
                                                 $ROP = hitungROP($rata_perhari, $lead_time, $safety_stock);
                                                 if ($data['stok'] <= $ROP) {
-                                                ?> <td class=alert><a href="persediaan.php"> Lakukan Penambahan Stok segera</a> </td>
+                                                ?> <td width=" 200px"><a class="btn btn-secondary bg-danger btn-user btn-block btnsize" href="persediaan.php"> Lakukan Penambahan Stok segera</a> </td>
                                                 <?php  } else {
-                                                ?> <td>Stok Anda Masih Cukup</td>
+                                                ?> <td> <a class="btn btn-secondary btn-user bg-success btn-block">Stok Anda Masih Cukup</a></td>
                                                 <?php } ?>
                                                 <td>
                                                     <a href="hapus_barang.php?id_barang=<?= $data['id_barang'] ?>" class="btn btn-secondary bg-danger btn-user btn-block btnsize"> Hapus </a>
