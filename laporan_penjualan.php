@@ -32,6 +32,11 @@ if (!isset($_SESSION["Login"])) {
             background-color: #98bf64;
 
         }
+
+        td,
+        th {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -57,7 +62,7 @@ if (!isset($_SESSION["Login"])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
                     <span>Dashboard</span></a>
             </li>
@@ -69,7 +74,7 @@ if (!isset($_SESSION["Login"])) {
                 <a class="nav-link" href="persediaan.php">
                     <span>Persediaan</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="laporan_penjualan.php">
                     <span>Laporan Penjualan</span></a>
             </li>
@@ -124,10 +129,11 @@ if (!isset($_SESSION["Login"])) {
                         <div class="card-header py-3">
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <a href="cetak_laporan_penjualan.php">Cetak</a>
+
                                 </div>
                                 <div class="col-lg-3 ">
                                     <form method="POST" action="hasil_pencarian_penjualan.php">
+
                                         <label for="bulan">Pilih Bulan:</label>
                                         <select name="bulan" id="bulan">
                                             <option value="01">Januari</option>
@@ -154,30 +160,31 @@ if (!isset($_SESSION["Login"])) {
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
+
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Id Transaksi</th>
-                                            <th>Id Barang</th>
+                                            <th>Nama Barang</th>
                                             <th>Tanggal</th>
                                             <th>Jumlah</th>
-
                                         </tr>
                                     </thead>
-                                    <?php include "koneksi.php";
-                                    $query = mysqli_query($koneksi, "SELECT * FROM penjualan ");
-                                    while ($data = mysqli_fetch_array($query)) {
-                                    ?>
-                                        <tbody>
+                                    <tbody>
+                                        <?php
+                                        include "koneksi.php";
+                                        $query = mysqli_query($koneksi, "SELECT * FROM penjualan ");
+                                        while ($data = mysqli_fetch_array($query)) {
+                                        ?>
                                             <tr>
-                                                <td><?= $data['id_penjualan'] ?></td>
+
                                                 <td><?= $data['nama_barang'] ?></td>
                                                 <td><?= $data['tanggal_penjualan'] ?></td>
                                                 <td><?= $data['jumlah_penjualan'] ?></td>
                                             </tr>
                                         <?php } ?>
-                                        </tbody>
+                                    </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
@@ -244,6 +251,33 @@ if (!isset($_SESSION["Login"])) {
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+    <script>
+        function generatePDF() {
+            // Membuat instance jsPDF
+            var doc = new jsPDF();
+
+            // Mengambil data dari tabel
+            var table = document.getElementById("dataTable");
+
+            // Mengatur judul laporan
+            doc.setFontSize(18);
+            doc.text('Laporan Penjualan', 10, 10);
+
+            // Mengatur options untuk tampilan tabel
+            var options = {
+                theme: 'grid',
+                startY: 20
+            };
+
+            // Mengkonversi tabel menjadi format PDF
+            doc.autoTable(options, table);
+
+            // Menyimpan dan menampilkan PDF
+            doc.save('laporan_penjualan.pdf');
+        }
+    </script>
+
 
 </body>
 

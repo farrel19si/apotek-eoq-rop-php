@@ -1,10 +1,10 @@
-<?php 
+<?php
 session_start();
-if (!isset($_SESSION["Login"])){
+if (!isset($_SESSION["Login"])) {
     header("Location: Login.php");
     exit;
 }
-?> 
+?>
 
 <html lang="en">
 
@@ -16,22 +16,20 @@ if (!isset($_SESSION["Login"])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="icon" href="gambar/icon-nobg.png"/>
-    <title>Beranda | Apotek Makmur</title>
+    <link rel="icon" href="gambar/icon-nobg.png" />
+    <title>Laporan Pembelian | Apotek Makmur</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <style>
-        .bg{
-            
-          background-color: #98bf64;
-        
+        .bg {
+
+            background-color: #98bf64;
+
         }
     </style>
 </head>
@@ -58,52 +56,52 @@ if (!isset($_SESSION["Login"])){
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="beranda.php">
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="data_barang.php">  
+                <a class="nav-link" href="data_barang.php">
                     <span>Data Barang</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="persediaan.php">  
+                <a class="nav-link" href="persediaan.php">
                     <span>Persediaan</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="laporan_penjualan.php">  
+                <a class="nav-link" href="laporan_penjualan.php">
                     <span>Laporan Penjualan</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="laporan_pembelian.php">  
+            <li class="nav-item active">
+                <a class="nav-link" href="laporan_pembelian.php">
                     <span>Laporan Pembelian</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="logout.php">  
+                <a class="nav-link" href="logout.php">
                     <span>Logout</span></a>
             </li>
             <!-- Divider -->
-            
+
 
             <!-- Heading -->
-            
+
 
             <!-- Nav Item - Pages Collapse Menu -->
-            
+
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            
+
 
             <!-- Divider -->
-           
+
 
             <!-- Heading -->
-           
+
             <!-- Nav Item - Pages Collapse Menu -->
-            
+
 
             <!-- Nav Item - Charts -->
-           
+
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -133,7 +131,7 @@ if (!isset($_SESSION["Login"])){
                     </button>
                     <!-- judul halaman -->
                     <div>
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Laporan Pemmbelian</h1>
 
                     </div>
 
@@ -168,10 +166,10 @@ if (!isset($_SESSION["Login"])){
                                             <td>61</td>
                                             <td>2011/04/25</td>
                                             <td>
-                                                
-                                                    <a href="#" class="btn btn-secondary btn-user btn-block" margin-right="100px"> tes </a>
-                                                    <a href="#" class="btn btn-secondary btn-user btn-block"> tes </a>
-                                                
+
+                                                <a href="#" class="btn btn-secondary btn-user btn-block" margin-right="100px"> tes </a>
+                                                <a href="#" class="btn btn-secondary btn-user btn-block"> tes </a>
+
                                             </td>
                                         </tr>
                                         <tr>
@@ -304,8 +302,7 @@ if (!isset($_SESSION["Login"])){
     </a>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
