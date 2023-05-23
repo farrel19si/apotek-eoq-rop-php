@@ -191,12 +191,144 @@ if (!isset($_SESSION["Login"])) {
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <label>Rata Rata Permintaan /Tahun</label>
+                                                            <label>Rata Rata Permintaan Januari</label>
                                                         </td>
                                                         <td>:</td>
                                                         <td>
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" name="permintaan_tahun" value="<?php echo $data['permintaan_tahun'] ?>" required>
+                                                                <input type="text" class="form-control form-control-user" name="rata_jan" value="<?php echo $data['rata_jan'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Februari</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_feb" value="<?php echo $data['rata_feb'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Maret</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_mar" value="<?php echo $data['rata_mar'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan April</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_apr" value="<?php echo $data['rata_apr'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan May</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_may" value="<?php echo $data['rata_may'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Juni</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_jun" value="<?php echo $data['rata_jun'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Juli</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_jul" value="<?php echo $data['rata_jul'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Agustus</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_agus" value="<?php echo $data['rata_agus'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan September</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_sept" value="<?php echo $data['rata_sept'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Oktober</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_okt" value="<?php echo $data['rata_okt'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan November</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_nov" value="<?php echo $data['rata_nov'] ?>" required>
+                                                            </div>
+
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <label>Rata Rata Permintaan Desember</label>
+                                                        </td>
+                                                        <td>:</td>
+                                                        <td>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control form-control-user" name="rata_des" value="<?php echo $data['rata_des'] ?>" required>
                                                             </div>
 
                                                         </td>
