@@ -18,7 +18,7 @@ if (!isset($_SESSION["Login"])) {
     <meta name="author" content="">
 
     <link rel="icon" href="gambar/icon-nobg.png" />
-    <title>Data Barang | Apotek Makmur</title>
+    <title>Persediaan | Apotek Makmur</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -79,7 +79,7 @@ if (!isset($_SESSION["Login"])) {
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="beranda.php">
                     <span>Dashboard</span></a>
             </li>
@@ -87,7 +87,7 @@ if (!isset($_SESSION["Login"])) {
                 <a class="nav-link" href="data_barang.php">
                     <span>Data Barang</span></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="persediaan.php">
                     <span>Persediaan</span></a>
             </li>
@@ -154,7 +154,7 @@ if (!isset($_SESSION["Login"])) {
                     </button>
                     <!-- judul halaman -->
                     <div>
-                        <h1 class="h3 mb-0 text-gray-800">Data Barang</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Persediaan</h1>
 
                     </div>
 
@@ -189,9 +189,9 @@ if (!isset($_SESSION["Login"])) {
                                     </thead>
                                     <?php include "koneksi.php";
                                     $query = mysqli_query($koneksi, "SELECT * FROM barang  ");
-                                    function calculateEOQ($permintaan_tahun, $biaya_pesan, $biaya_simpan)
+                                    function calculateEOQ($lead_time, $penjualan_max)
                                     {
-                                        $EOQ = sqrt((2 * $permintaan_tahun * $biaya_pesan) / $biaya_simpan);
+                                        $EOQ = sqrt($lead_time * 100000 * ($penjualan_max * 52) / 3000);
                                         return $EOQ;
                                     }
                                     while ($data = mysqli_fetch_array($query)) {
@@ -202,25 +202,19 @@ if (!isset($_SESSION["Login"])) {
                                                 <td><?= $data['stok'] ?></td>
                                                 <td>
                                                     <?php
-                                                    $permintaan_tahun = $data['permintaan_tahun'];
-                                                    $biaya_pesan = $data['biaya_pesan'];
-                                                    $biaya_simpan = $data['biaya_simpan'];
-                                                    if ($permintaan_tahun == 0) {
-                                                    ?><label>Lakukan Perhitungan EOQ terlebih dahulu</label>
-                                                    <?php } elseif ($biaya_pesan == 0) {
-                                                    ?><label>Lakukan Perhitungan EOQ terlebih dahulu</label><?php
-                                                                                                        } elseif ($biaya_simpan == 0) {
-                                                                                                            ?><label>Lakukan Perhitungan EOQ terlebih dahulu</label><?php
-                                                                                                        } else {
-                                                                                                            $EOQ = calculateEOQ($permintaan_tahun, $biaya_pesan, $biaya_simpan);
-                                                                                                            echo $EOQ;
-                                                                                                        }
 
-                                                                                                            ?>
+
+                                                    $lead_time = $data['lead_time'];
+                                                    $penjualan_max = $data['penjualan_max'];
+
+                                                    $EOQ = calculateEOQ($lead_time, $penjualan_max);
+                                                    $bulat = round($EOQ);
+                                                    echo $bulat
+                                                    ?>
                                                 </td>
                                                 <td>
                                                     <a href="tambah_stok_barang.php?id_barang=<?= $data['id_barang'] ?>" class="btn btn-secondary bg-success btn-user btn-block btnsize"> Tambah Stok Barang </a>
-                                                    <a href="hitung_eoq.php?id_barang=<?= $data['id_barang'] ?>" class="btn btn-secondary bg-success btn-user btn-block btnsize">Hitung EOQ </a>
+
                                                 </td>
                                             </tr>
 
