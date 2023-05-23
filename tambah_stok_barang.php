@@ -132,7 +132,7 @@ if (!isset($_SESSION["Login"])) {
                     </button>
                     <!-- judul halaman -->
                     <div>
-                        <h1 class="h3 mb-0 text-gray-800">Data Barang</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Tambah Stok</h1>
 
                     </div>
 
@@ -198,8 +198,10 @@ if (!isset($_SESSION["Login"])) {
                                                         <td>:</td>
                                                         <td>
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control form-control-user" value="<?php echo $data['stok'] ?>" name="stok" required>
+                                                                <input type="number" class="form-control form-control-user" name="jumlah_tambah" id="jumlah_tambah" required>
                                                             </div>
+                                                            <?php
+                                                            ?>
 
                                                         </td>
                                                     </tr>
@@ -207,11 +209,12 @@ if (!isset($_SESSION["Login"])) {
                                                         <td>
                                                         </td>
                                                         <td>
+                                                        </td>
+                                                        <td>
                                                             <div class="form-group">
-                                                                <input type="submit" value="Update" class="button">
+                                                                <input type="submit" value="Update" class="btn btn-secondary btn-user bg-success btn-block">
                                                             </div>
                                                         </td>
-                                                        <td></td>
                                                     </tr>
                                             </table>
                                         </form>
