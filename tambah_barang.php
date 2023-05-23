@@ -18,7 +18,7 @@ if (!isset($_SESSION["Login"])) {
     <meta name="author" content="">
 
     <link rel="icon" href="gambar/icon-nobg.png" />
-    <title>Beranda | Apotek Makmur</title>
+    <title>Tambah Barang | Apotek Makmur</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -176,7 +176,7 @@ if (!isset($_SESSION["Login"])) {
                                                     </tr>
                                                     <tr>
                                                         <th>
-                                                            <label>lead_time</label>
+                                                            <label>Lead time</label>
                                                         </th>
                                                         <th>:</th>
                                                         <th>
@@ -186,22 +186,22 @@ if (!isset($_SESSION["Login"])) {
                                                     </tr>
                                                     <tr>
                                                         <th>
-                                                            <label>Rata Rata Pemesanan/Hari</label>
+                                                            <label>Penjualan Maksimal</label>
+                                                        </th>
+                                                        <th>:</th>
+                                                        <th>
+                                                            <div class="form-group">
+                                                                <input type="number" class="form-control form-control-user" name="penjualan_max">
+                                                            </div>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>
+                                                            <label>Permintaan/Hari</label>
                                                         </th>
                                                         <th>:</th>
                                                         <th>
                                                             <div class="form-group">
                                                                 <input type="number" class="form-control form-control-user" name="rata_perhari">
-                                                            </div>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>
-                                                            <label>Safety Stock</label>
-                                                        </th>
-                                                        <th>:</th>
-                                                        <th>
-                                                            <div class="form-group">
-                                                                <input type="number" class="form-control form-control-user" name="safety_stock">
                                                             </div>
                                                     </tr>
 
